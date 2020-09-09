@@ -1,0 +1,50 @@
+{
+  "name": "base64-image",
+  "version": "0.0.0",
+  "description": "A base64-image converter and vice-versa",
+  "main": "dist/src",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc --build --clean && tsc",
+    "test": "tsc --noEmit && ava",
+    "build": "tsc --build --clean && tsc",
+    "prepare": "npm run build",
+    "release": "np"
+  },
+  "author": "Govind S",
+  "license": "MIT",
+  "homepage": "https://github.com/dopecodez/base54-image",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dopecodez/base54-image.git"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "ava": "^3.8.2",
+    "typescript": "^3.8.3",
+    "@ava/typescript": "^1.1.1",
+    "np": "^6.2.3"
+  },
+  "files": [
+    "dist/source",
+    "dist/test"
+  ],
+  "types": "dist/source/",
+  "ava": {
+    "files": [
+      "test/*"
+    ],
+    "timeout": "1m",
+    "typescript": {
+      "rewritePaths": {
+        "test/": "dist/test/"
+      }
+    }
+  },
+  "dependencies": {},
+  "keywords": [
+    "base64"
+  ]
+}
