@@ -1,3 +1,6 @@
+import { mimeError } from "./errors";
+import { ERROR_MESSAGES } from "./messages";
+
 export function findMimeType(base64: string) {
     const mimeType = base64?.match(/[^:/]\w+(?=;|,)/)![0];
     if(mimeType){
@@ -10,12 +13,13 @@ function validateMimeType(base64: string) {
     if(supportedMimeTypes.includes(mimeType)){
         return true;
     }
-    return false;
+    throw new mimeError(`${ERROR_MESSAGES.UNSUPPORTED_MIME_TYPE}${mimeType}`);
 }
 
 const supportedMimeTypes = [
     'png',
     'jpg',
+    'svg',
     'jpeg',
     'gif'
 ]
