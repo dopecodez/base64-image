@@ -15,7 +15,8 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "declaration": true
+        "declaration": true,
+        "traceResolution": true
     },
     "include": [
         "source",
