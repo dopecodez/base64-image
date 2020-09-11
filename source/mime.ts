@@ -21,7 +21,6 @@ export function validateMimeType(mimeType: string) {
 const supportedMimeTypes = [
     'png',
     'jpg',
-    'svg',
     'jpeg',
     'gif'
 ]
