@@ -1,16 +1,23 @@
-import { findMimeType } from './mime';
+import { findMimeType, validateMimeType } from './mime';
 import path from 'path';
 import { checkValidDestination, writeToMemory, isImage, readFileAndConvert } from './file';
-import { checkIfValidBase64, checkIfValidUrl, bufferToString } from './base64';
+import { checkIfValidUrl, bufferToString, checkIfValidBase64 } from './base64';
 import fetch from 'node-fetch';
+import { base64ImageOptions } from './types';
 
 //The initial async convert function
-const base64 = async (base64String: string, destPath: string, fileName: string) => {
+const base64Image = async (base64String: string, destPath: string, fileName: string, options?: base64ImageOptions) => {
     try {
-        checkIfValidBase64(base64String);
-        const mimeType = findMimeType(base64String);
+        let mimeType;
+        if (!options?.type) {
+            mimeType = findMimeType(base64String);
+        } else {
+            mimeType = options.type;
+            validateMimeType(mimeType)
+        }
         const data = base64String.replace(/^data:image\/\w+;base64,/, '');
-        const filePath = path.join(__dirname, destPath);
+        checkIfValidBase64(data);
+        const filePath = path.join(destPath);
         const fullPath = path.join(filePath, fileName + `.${mimeType}`);
         if (checkValidDestination(filePath)) {
             await writeToMemory(fullPath, data);
@@ -21,7 +28,7 @@ const base64 = async (base64String: string, destPath: string, fileName: string) 
     }
 }
 
-base64.toBase64 = async (urlOrPath: string) => {
+base64Image.toBase64 = async (urlOrPath: string) => {
     if (checkIfValidUrl(urlOrPath)) {
         const response = await fetch(urlOrPath);
         const responseBuffer = await response.buffer();
@@ -32,7 +39,12 @@ base64.toBase64 = async (urlOrPath: string) => {
     }
 }
 
-export default base64;
+export default base64Image;
 // For CommonJS default export support
-module.exports = base64;
-module.exports.default = base64;
+module.exports = base64Image;
+module.exports.default = base64Image;
+
+// Export types
+export {
+    base64ImageOptions
+} from './types';
