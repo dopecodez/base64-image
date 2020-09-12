@@ -2,13 +2,14 @@
   "name": "base64-image",
   "version": "0.0.0",
   "description": "A base64-image converter and vice-versa",
-  "main": "dist/src",
+  "main": "dist/source",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
     "prepublishOnly": "tsc --build --clean && tsc",
     "test": "tsc --noEmit && ava",
+    "postbuild": "copyfiles -u 1 test/*.txt test/*.jpg dist/test",
     "build": "tsc --build --clean && tsc",
     "prepare": "npm run build"
   },
@@ -24,6 +25,7 @@
     "@types/node": "^13.13.5",
     "@types/node-fetch": "^2.5.7",
     "ava": "^3.8.2",
+    "copyfiles": "^2.2.0",
     "typescript": "^3.8.3"
   },
   "files": [
