@@ -1,8 +1,8 @@
-export class base64ImageError extends Error {
+export class base64ImgError extends Error {
     code?: string;
     constructor(message: string, code?: string) {
         super(message);
-        this.name = 'base64ImageError';
+        this.name = 'base64ImgError';
         this.code = code;
     }
 }
@@ -16,14 +16,14 @@ export class base64InvalidError extends Error {
     }
 }
 
-export class mimeError extends base64ImageError {
+export class mimeError extends base64ImgError {
     constructor(message: string) {
         super(message);
         this.name = 'mimeTypeError';
     }
 }
 
-export class filePathError extends base64ImageError {
+export class filePathError extends base64ImgError {
     constructor(message: string) {
         super(message);
         this.name = 'filePathError';

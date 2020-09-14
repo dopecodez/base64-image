@@ -1,3 +1,3 @@
-export interface base64ImageOptions {
+export interface base64ImgOptions {
     type: string
 }

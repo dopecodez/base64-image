@@ -3,10 +3,10 @@ import path from 'path';
 import { checkValidDestination, writeToMemory, isImage, readFileAndConvert } from './file';
 import { checkIfValidUrl, bufferToString, checkIfValidBase64 } from './base64';
 import fetch from 'node-fetch';
-import { base64ImageOptions } from './types';
+import { base64ImgOptions } from './types';
 
 //The initial async convert function
-const base64Image = async (base64String: string, destPath: string, fileName: string, options?: base64ImageOptions) => {
+const base64Img = async (base64String: string, destPath: string, fileName: string, options?: base64ImgOptions) => {
     try {
         let mimeType;
         if (!options?.type) {
@@ -28,7 +28,7 @@ const base64Image = async (base64String: string, destPath: string, fileName: str
     }
 }
 
-base64Image.toBase64 = async (urlOrPath: string) => {
+base64Img.toBase64 = async (urlOrPath: string) => {
     if (checkIfValidUrl(urlOrPath)) {
         const response = await fetch(urlOrPath);
         const responseBuffer = await response.buffer();
@@ -39,12 +39,12 @@ base64Image.toBase64 = async (urlOrPath: string) => {
     }
 }
 
-export default base64Image;
+export default base64Img;
 // For CommonJS default export support
-module.exports = base64Image;
-module.exports.default = base64Image;
+module.exports = base64Img;
+module.exports.default = base64Img;
 
 // Export types
 export {
-    base64ImageOptions
+    base64ImgOptions
 } from './types';

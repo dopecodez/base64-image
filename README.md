@@ -9,25 +9,25 @@ Newly released and actively maintained. Small unpacked size.
 # INSTALLATION
 
 ```
-$ npm install base64-image
+$ npm install base64img
 ```
 
 ## Highlights
 
-- [base64Image](#base64Image)
+- [base64Img](#base64Img)
 - [toBase64](#toBase64)
 - [Contributing](#contributing)
 
-## base64Image
+## base64Img
 
 It's a simple library with two functions plus types exposed.
 
 ```js
-const base64Image = require('base64Image');
+const base64Img = require('base64img');
 
 (async () => {
 	try {
-		const response = await base64Image('base64String', './', 'sample', {type: 'jpeg'});	
+		const response = await base64Img('base64String', './', 'sample', {type: 'jpeg'});	
 	} catch (error) {
 		console.log(error);
 		//=> 'Internal server error ...'
@@ -42,16 +42,16 @@ The third argument is the filename which can be any valid string.
 
 The method will return the path of the updated image.
 
-The `type` parameter in the `base64ImageOptions` is not required. If specified, it will create an image of the given type. If not present, the type will be inferred from the image type section of the base64 image string. If no type portion exists for base64 string, it will default to `png`.
+The `type` parameter in the `base64ImgOptions` is not required. If specified, it will create an image of the given type. If not present, the type will be inferred from the image type section of the base64 image string. If no type portion exists for base64 string, it will default to `png`.
 
 ## toBase64
 
 ```js
-const base64Image = require('base64Image');
+const base64Img = require('base64img');
 
 (async () => {
 	try {
-		const response = await base64Image.toBase64('somepath/sample.png');	
+		const response = await base64Img.toBase64('somepath/sample.png');	
 	} catch (error) {
 		console.log(error);
 		//=> 'Internal server error ...'
@@ -61,11 +61,11 @@ const base64Image = require('base64Image');
 The `toBase64` function converts the given image to `base64` string and returns the same. The given imagePath can be any valid path in your filesystem or any image url on the web.
 
 ```js
-const base64Image = require('base64Image');
+const base64Img = require('base64img');
 
 (async () => {
 	try {
-		const response = await base64Image.toBase64('hhttps://upload.wikimedia.org/wikipedia/en/f/f3/Dilbert-20050910.png');	
+		const response = await base64Img.toBase64('hhttps://upload.wikimedia.org/wikipedia/en/f/f3/Dilbert-20050910.png');	
 	} catch (error) {
 		console.log(error);
 		//=> 'Internal server error ...'
