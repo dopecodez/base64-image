@@ -1,4 +1,4 @@
-{  "name": "base64img",
+{  "name": "node-base64-img",
   "version": "0.0.0",
   "description": "A base64-image converter and vice-versa",
   "main": "dist/source",

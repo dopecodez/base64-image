@@ -9,7 +9,7 @@ Newly released and actively maintained. Small unpacked size.
 # INSTALLATION
 
 ```
-$ npm install base64img
+$ npm install node-base64-img
 ```
 
 ## Highlights
