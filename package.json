@@ -15,10 +15,10 @@
   },
   "author": "Govind S",
   "license": "MIT",
-  "homepage": "https://github.com/dopecodez/base54-image",
+  "homepage": "https://github.com/dopecodez/base64-image#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dopecodez/base54-image.git"
+    "url": "git://github.com/dopecodez/base64-image.git"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
@@ -29,8 +29,7 @@
     "typescript": "^3.8.3"
   },
   "files": [
-    "dist/source",
-    "dist/test"
+    "dist/source"
   ],
   "types": "dist/source/",
   "ava": {
@@ -48,6 +47,10 @@
     "node-fetch": "^2.6.1"
   },
   "keywords": [
-    "base64"
+    "base64",
+    "base64-img",
+    "base64-image",
+    "base64-converter",
+    "image-base64"
   ]
 }
