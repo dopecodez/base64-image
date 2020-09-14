@@ -3,7 +3,7 @@ import path from 'path';
 import { checkValidDestination, writeToMemory, isImage, readFileAndConvert } from './file';
 import { checkIfValidUrl, bufferToString, checkIfValidBase64 } from './base64';
 import fetch from 'node-fetch';
-import { base64ImgOptions } from './types';
+import { base64ImgOptions, base64ImgResult } from './types';
 
 //The initial async convert function
 const base64Img = async (base64String: string, destPath: string, fileName: string, options?: base64ImgOptions) => {
@@ -22,7 +22,11 @@ const base64Img = async (base64String: string, destPath: string, fileName: strin
         if (checkValidDestination(filePath)) {
             await writeToMemory(fullPath, data);
         }
-        return fullPath;
+        const result : base64ImgResult = {
+            path: fullPath,
+            mimeType: mimeType
+        }
+        return result;
     } catch (error) {
         throw error;
     }
@@ -46,5 +50,6 @@ module.exports.default = base64Img;
 
 // Export types
 export {
-    base64ImgOptions
+    base64ImgOptions,
+    base64ImgResult
 } from './types';

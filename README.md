@@ -40,7 +40,15 @@ The second argument is the path where you want to save the image. This can be re
 
 The third argument is the filename which can be any valid string.
 
-The method will return the path of the updated image.
+The method will return a `base64ImgResult` object type which is exported in `types`.
+
+```js
+interface base64ImgResult {
+    path: string,
+    mimeType: string
+}
+```
+The mimeType and path parameters can be useful in case you want to save the path or know what type your image was saved as.
 
 The `type` parameter in the `base64ImgOptions` is not required. If specified, it will create an image of the given type. If not present, the type will be inferred from the image type section of the base64 image string. If no type portion exists for base64 string, it will default to `png`.
 
