@@ -42,7 +42,7 @@ The third argument is the filename which can be any valid string.
 
 The method will return a `base64ImgResult` object type which is exported in `types`.
 
-```js
+```ts
 interface base64ImgResult {
     path: string,
     mimeType: string
