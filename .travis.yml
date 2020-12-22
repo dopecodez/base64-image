@@ -3,9 +3,14 @@ env:
     - CC_TEST_REPORTER_ID=a923709ec7256472036c1a83f0ed443cd7439bc237ac9e1cb8305665c24a7a34
 language: node_js
 node_js:
+  - '14'
   - '13'
   - '12'
   - '10'
+os:
+  - 'linux'
+  - 'osx'
+  - 'windows'
 before_script:
   - npm i -g nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
