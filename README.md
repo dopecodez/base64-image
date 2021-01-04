@@ -1,4 +1,4 @@
-# NODE-BASE64-IMG [![Build Status](https://travis-ci.org/dopecodez/base64-image.svg?branch=master)](https://travis-ci.org/dopecodez/base64-image) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/base64-image/issues) [![Test Coverage](https://api.codeclimate.com/v1/badges/84f7953e0bd19f4db04a/test_coverage)](https://codeclimate.com/github/dopecodez/base64-image/test_coverage)
+# NODE-BASE64-IMG [![build](https://github.com/dopecodez/base64-image/workflows/build/badge.svg)](https://github.com/dopecodez/base64-image/actions)[![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/base64-image/issues)
 
 A base64-image converter and vice-versa for node with modern ES6.
 
